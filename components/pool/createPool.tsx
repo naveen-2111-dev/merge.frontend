@@ -3,7 +3,7 @@ const CreatePoolContent = () => {
         <div className="space-y-6">
             <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-2xl p-8 border border-purple-500/20">
                 <h2 className="text-2xl font-bold text-white mb-2">Create New Pool</h2>
-                <p className="text-purple-300 mb-6">Set up a new liquidity pool for token pairs</p>
+                <p className="text-purple-300 mb-6">Set up a new liquidity pool for Your repo</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
