@@ -25,16 +25,16 @@ export const PrivyProviderWrapper = ({ children }: PrivyProviderWrapperProps) =>
                     ],
                 },
                 defaultChain: {
-                    id: 195,
-                    name: "Sonic Testnet",
+                    id: 57054,
+                    name: "Sonic Blaze Testnet",
                     nativeCurrency: {
                         name: "SONIC",
-                        symbol: "SONIC",
+                        symbol: "S",
                         decimals: 18,
                     },
                     rpcUrls: {
                         default: {
-                            http: ["https://rpc.testnet.sonic.xyz"],
+                            http: ["https://rpc.blaze.soniclabs.com"],
                         },
                     },
                     blockExplorers: {
@@ -46,16 +46,16 @@ export const PrivyProviderWrapper = ({ children }: PrivyProviderWrapperProps) =>
                 },
                 supportedChains: [
                     {
-                        id: 195,
-                        name: "Sonic Testnet",
+                        id: 57054,
+                        name: "Sonic Blaze Testnet",
                         nativeCurrency: {
                             name: "SONIC",
-                            symbol: "SONIC",
+                            symbol: "S",
                             decimals: 18,
                         },
                         rpcUrls: {
                             default: {
-                                http: ["https://rpc.testnet.sonic.xyz"],
+                                http: ["https://rpc.blaze.soniclabs.com"],
                             },
                         },
                         blockExplorers: {

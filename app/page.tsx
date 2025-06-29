@@ -8,10 +8,14 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Menu, GitMerge, Wallet, Github, Zap, Shield, Users, ChevronRight, Star, TrendingUp } from "lucide-react";
 import ConnectWalletButton from "@/components/connect/ConnectButton";
+import { useRouter } from "next/navigation";
+import { usePrivy } from "@privy-io/react-auth";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const { authenticated, login } = usePrivy();
+  const router = useRouter();
 
   useEffect(() => {
     setIsVisible(true);
@@ -98,7 +102,9 @@ export default function Home() {
         </div>
 
         <div className={`flex flex-col sm:flex-row gap-6 mb-16 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white border-0 shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group px-8 py-6 text-lg">
+          <Button onClick={() => {
+            authenticated ? router.push("/pools") : login()
+          }} size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white border-0 shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group px-8 py-6 text-lg">
             Create Bounty Pool
             <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
