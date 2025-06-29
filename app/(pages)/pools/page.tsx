@@ -5,6 +5,7 @@ import { Menu } from 'lucide-react';
 import Sidebar from '@/components/sidebar/sidebar';
 import CreatePoolContent from '@/components/pool/createPool';
 import MyPoolsContent from '@/components/pool/MyPools';
+import BotWidget from '@/components/pool/bot';
 
 const PoolsPage = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -35,6 +36,8 @@ const PoolsPage = () => {
                             <div className="w-6" />
                         </div>
                     </div>
+
+                    <BotWidget />
 
                     <div className="p-6 lg:p-8">
                         {activeTab === 'create' && <CreatePoolContent />}

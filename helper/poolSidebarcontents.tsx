@@ -1,4 +1,4 @@
-import { Bot, Plus, Wallet } from "lucide-react";
+import { Plus, Wallet } from "lucide-react";
 
 const sidebarItems = [
     {
@@ -10,11 +10,6 @@ const sidebarItems = [
         id: 'my-pools',
         label: 'My Pools',
         icon: Wallet,
-    },
-    {
-        id: 'Agent',
-        label: 'Agent',
-        icon: Bot,
     }
 ];
 
