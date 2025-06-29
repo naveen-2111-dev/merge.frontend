@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsVisible(true);
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -103,8 +103,13 @@ export default function Home() {
 
         <div className={`flex flex-col sm:flex-row gap-6 mb-16 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Button onClick={() => {
-            authenticated ? router.push("/pools") : login()
-          }} size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white border-0 shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group px-8 py-6 text-lg">
+            if (authenticated) {
+              router.push("/pools");
+            } else {
+              login();
+            }
+          }}
+            size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white border-0 shadow-xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group px-8 py-6 text-lg">
             Create Bounty Pool
             <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
