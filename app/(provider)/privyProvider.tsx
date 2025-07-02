@@ -10,6 +10,7 @@ interface PrivyProviderWrapperProps {
 export const PrivyProviderWrapper = ({ children }: PrivyProviderWrapperProps) => {
     return (
         <PrivyProvider
+            //privy orovider wrapes the application
             appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string}
             config={{
                 appearance: {
