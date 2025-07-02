@@ -1,15 +1,34 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu } from 'lucide-react';
 import Sidebar from '@/components/sidebar/sidebar';
 import CreatePoolContent from '@/components/pool/createPool';
 import MyPoolsContent from '@/components/pool/MyPools';
 import BotWidget from '@/components/pool/bot';
+import axios from "axios";;
+
+import { useSearchParams } from 'next/navigation'
 
 const PoolsPage = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activeTab, setActiveTab] = useState<string>('create');
+
+    //catches the incomming installation id on callback
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        const installationId = searchParams.get('installation_id')
+
+        if (installationId) {
+            axios.post('/api/githubId', {
+                token: installationId,
+            })
+                .catch(error => {
+                    console.error('Error sending installation ID:', error)
+                })
+        }
+    }, [searchParams])
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
